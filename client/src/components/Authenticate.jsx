@@ -6,7 +6,7 @@ const Authenticate = (props) => {
     // const navigate=useNavigate();
 
 const setUser=async ()=>{
-    const res=await fetch("/api/v1/verify-user",{
+    const res=await fetch("/users/verify-user",{
         method:"GET",
         headers:{
             "Content-Type":"application/json",

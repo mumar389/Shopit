@@ -93,7 +93,8 @@ module.exports.createSession=async(req,res)=>{
 //for verifying the user for react auth-:
 module.exports.verifyUser=async (req,res)=>{
     return res.status(200).json({
-        message:"Verification Sucessfull"
+        message:"Verification Sucessfull",
+        data:req.user
     });
 }
 
