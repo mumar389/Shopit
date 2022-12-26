@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from './Navbar';
 import Home from './Home';
 import Login from './Login';
 import Register from './Register';
@@ -10,7 +9,6 @@ function App() {
   return (
     <div className="App">
     
-    <Navbar/>
     <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/sign-in" element={<Login />} />

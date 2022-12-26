@@ -21,7 +21,7 @@ const Login = () => {
     e.preventDefault();
     const {email,password}=user;
 
-    const res=await fetch("/api/v1/create-session",{
+    const res=await fetch("/users/create-session",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -41,14 +41,14 @@ const Login = () => {
         window.alert("Internal server error");
       }
       window.alert("Login Successfull")
-      window.open('http://localhost:3000/secret-page','_self')
+      window.open('http://localhost:3000/','_self')
     }
   }
 
   const googleAuth=async(e)=>{
     try {
       e.preventDefault();
-      window.open('http://localhost:5620/api/v1/auth/google','_self')
+      window.open('http://localhost:9000/users/auth/google','_self')
       
     } catch (error) {
       console.log("error--:",error)

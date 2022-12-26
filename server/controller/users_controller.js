@@ -92,10 +92,13 @@ module.exports.createSession=async(req,res)=>{
 
 //for verifying the user for react auth-:
 module.exports.verifyUser=async (req,res)=>{
-    return res.status(200).json({
-        message:"Verification Sucessfull",
-        data:req.user
-    });
+    let details={
+        "name":req.user.name,
+        "email":req.user.email,
+        "phone":req.user.phone,
+        "address":req.user.address,
+    };
+  return res.send(details);
 }
 
 //google login
@@ -103,8 +106,8 @@ module.exports.googleHome=async(req,res)=>{
     let token=jwt.sign(req.user.toJSON(),'codial',{expiresIn:'1000000'});
     res.cookie('jwt', token);
     //for frontend
-    // return res.redirect('http://localhost:3000/user');
-    return res.status(200).json({
-        message:"Auth Success"
-    })
+    return res.redirect('http://localhost:3000/');
+    // return res.status(200).json({
+    //     message:"Auth Success"
+    // })
 }

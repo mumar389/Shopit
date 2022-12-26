@@ -7,7 +7,9 @@ const Register = () => {
     name:"",
     email:"",
     password:"",
-    cp:""
+    cp:"",
+    phone:"",
+    address:"",
   }) ;
   function handleChange(event){
     const name=event.target.name;
@@ -21,9 +23,9 @@ const Register = () => {
   }
   let addData=async(e)=>{
     e.preventDefault();
-    const {name,email,password,cp}=data;
+    const {name,email,password,cp,phone,address}=data;
    //Using fetch api
-   const res=await fetch("/api/v1/create",{
+   const res=await fetch("/users/create-user",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -32,7 +34,9 @@ const Register = () => {
       name:name,
       email:email,
       password:password,
-      cp:cp
+      cp:cp,
+      phone,
+      address
     })
    });
    const dataBack=await res.json();
@@ -77,6 +81,24 @@ const Register = () => {
               required
             />
             <label htmlFor="floatingInput">Email address</label>
+          </div>
+          <div className="form-floating">
+            <input
+            value={data.name}
+            onChange={handleChange}
+              type="number"
+              name="phone"
+              className="form-control"
+              id="floatingInput"
+              placeholder="Enter Phone"
+              required
+            />
+            <label htmlFor="floatingInput">Phone-:</label>
+          </div>
+          <div className="form-floating">
+            <textarea rows={5} cols={10} onChange={handleChange} name="address" value={data.address}         className="form-control"
+              id="floatingInput" ></textarea>
+            <label htmlFor="floatingInput">Address:-</label>
           </div>
           <div className="form-floating">
             <input
