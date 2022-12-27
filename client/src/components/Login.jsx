@@ -113,7 +113,7 @@ const Login = () => {
         </form>
         <NavLink className=" mt-2 btn btn-dark btn-lg " to="/sign-up">Not yet registered? click here to Register.</NavLink>
         <br/>
-        <button className="mt-2 btn btn-danger" onClick={googleAuth}><i className="fa-brands fa-google-plus-g"></i>G+Login</button>
+        <button className="mt-2 btn btn-danger" onClick={googleAuth}><i className="fa-brands fa-google-plus-g"></i>Login</button>
       </main>
     </div>
     </div>

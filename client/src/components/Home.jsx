@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react'
+import Item from './Item';
 // import {useNavigate} from 'react-router-dom';
 
 const Home = () => {
@@ -32,14 +33,16 @@ const Home = () => {
   
   return (
     <div>
+        <div className='container mt-2'>
+        <div className='row'>
     {items.map((data)=>{
      return <>
-        <li>{data.title}</li>
-        <li>{data.desc}</li>
-        <li>{data.price}</li>
-        <br/>
+
+        <Item key={data.id} id={data._id} title={data.title} desc={data.desc} price={data.price}  />
         </>
     })}
+        </div>
+        </div>
     </div>
   )
 }
