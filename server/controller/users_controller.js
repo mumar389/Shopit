@@ -111,3 +111,13 @@ module.exports.googleHome=async(req,res)=>{
     //     message:"Auth Success"
     // })
 }
+
+//Logout 
+module.exports.logout=async (req,res)=>{
+      
+    res.clearCookie('jwt')
+
+    return res.status(200).json({
+        message:"Logout Successs"
+    })
+}

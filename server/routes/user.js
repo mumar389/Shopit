@@ -14,4 +14,6 @@ passport.authenticate('google', { scope: ['profile','email'] }));
 router.get('/auth/google/google-home',passport.authenticate('google',{
     failureRedirect:'http://localhost:3000/sign-up'}),userControl.googleHome);
 
+router.get('/sign-out',passport.authenticate('jwt',{session:false}),userControl.logout)
+
 module.exports=router;

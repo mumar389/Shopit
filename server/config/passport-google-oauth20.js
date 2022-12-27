@@ -1,12 +1,13 @@
 const passport=require('passport');
 const GoogleStrategy=require('passport-google-oauth20').Strategy;
 const User=require('../models/user');
-
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret:process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:9000/auth/google/google-home"
+    callbackURL: "http://localhost:9000/users/auth/google/google-home"
   },
   function(accessToken, refreshToken, profile, cb) {
     User.findOne({ email: profile.emails[0].value }, function (err, user) {
@@ -18,7 +19,8 @@ passport.use(new GoogleStrategy({
             User.create({
                 email:profile.emails[0].value,
                 name:profile.displayName,
-                googleId:profile.id
+                googleId:profile.id,
+                password:bcrypt.hashSync(googleId, saltRounds)
             },function(err,users){
                 if(err){
                     console.log("Error in passport-google");

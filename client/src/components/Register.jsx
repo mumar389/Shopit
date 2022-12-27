@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { NavLink,useNavigate } from 'react-router-dom'
-
+import { useCookies } from 'react-cookie';
 const Register = () => {
+  const [cookie]=useCookies();
   const navigate=useNavigate();
   const [data,setData]=useState({
     name:"",
@@ -49,10 +50,34 @@ const Register = () => {
    }
 
   }
+  const googleAuth=async(e)=>{
+    try {
+      e.preventDefault();
+      window.open('http://localhost:9000/users/auth/google','_self')
+      
+    } catch (error) {
+      console.log("error--:",error)
+      navigate("/sign-in");
+    }
+  }
+  const handleLogin=async ()=>{
+    if(cookie.jwt){
+      console.log("logged in");
+      navigate('/')
+    }else{
+      console.log("Not Login");
+    }
+
+  }
+
+  useEffect(()=>{
+      handleLogin();
+    // eslint-disable-next-line
+  },[])
   return (
     <div className="login">
     <div className="container ">
-      <main className="form-signin">
+      <main className="form-signin width50">
         <form method='POST'>
           <h1 className="h3 mb-3 fw-normal">Please Sign Up</h1>
 
@@ -130,7 +155,10 @@ const Register = () => {
             Sign Up
           </button>
         </form>
-          <NavLink className="mt-5 btn btn-dark btn-lg" to="/sign-in">Already registered? click here to login.</NavLink>
+          <NavLink className="mt-2 btn btn-dark btn-lg" to="/sign-in">Already registered? click here to login.</NavLink>
+
+        <button className="mt-2 btn btn-danger" onClick={googleAuth}><i className="fa-brands fa-google-plus-g"></i>G+Login</button>
+
       </main>
     </div>
     </div>
