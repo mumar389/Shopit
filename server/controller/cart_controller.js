@@ -71,3 +71,26 @@ module.exports.getCart=async(req,res)=>{
    }
   
 }
+//remove from cart
+module.exports.removeItem=async(req,res)=>{
+    try {
+        let allUsers=await User.findOneAndUpdate(req.user.id,{$pull:{cart:req.params.id}});
+        if(!allUsers){
+            console.log("Error ");
+            return res.status(301).json({
+                message:"Unable to perform this action at this time"
+            })
+        }else{
+            console.log("Item removed sucessfully");
+            return res.status(200).json({
+                message:"Item removed sucessfully"
+            })
+        }
+
+    } catch (error) {
+        console.log(error);
+        return res.status(501).json({
+            message:"Internal Server Error"
+        })
+    }
+}

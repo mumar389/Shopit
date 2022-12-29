@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
-import {useNavigate} from 'react-router-dom';
 import {useCookies} from 'react-cookie';
-
+import { useNavigate} from 'react-router-dom';
+import CartItem from './CartItem';
 const Cart = () => {
   const [cookies]=useCookies();
   let [totalPrice,setTotalPrice]=useState(0);
@@ -40,19 +40,17 @@ const Cart = () => {
     <div>
     <div className='container mt-2'>
         <div className='row'>
-    {cart.map((c)=>{
+    {cart.length===0?<>
+      <h3>Please add items in your cart</h3>
+    </>:
+    <>{cart.map((c)=>{
       return  <>
-      <div className="col-3 mt-2 border bg-light mx-2">
-  {/* <img src="..." className="card-img-top" alt="..."/> */}
-  <div className="card-body">
-    <h5 className="card-title">{c.title}</h5>
-    <p className="card-text">{c.desc}</p>
-    <p className="card-text">Price-: <i className="fa-solid fa-indian-rupee-sign"></i>{c.price}</p>
-  </div>
-</div>
+      <CartItem key={c._id} title={c.title} desc={c.desc} id={c._id} price={c.price}/>
       </>
-    })}
+    })
+    }
     <h4 className='card-text mt-5'>Total Price is-:{totalPrice}</h4>
+    </>}
     </div>
         </div>
     </div>
