@@ -19,8 +19,8 @@ const Item = (props) => {
                 console.log("Error in adding to cart");
                 window.alert("Failed to add item to cart,, please retry😢😢")
             }else{
-                const response=await res.json();
-                console.log(response.message);
+                // const response=await res.json();
+                // console.log(response.message);
                 window.alert("Item added to cart");
             }
         }
@@ -29,7 +29,7 @@ const Item = (props) => {
   return (
     <>
     <div className="col-3 mt-2 border bg-light mx-2">
-  <img src="..." className="card-img-top" alt="..."/>
+  {/* <img src="..." className="card-img-top" alt="..."/> */}
   <div className="card-body">
     <h5 className="card-title">{props.title}</h5>
     <p className="card-text">{props.desc}</p>

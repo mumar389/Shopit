@@ -17,7 +17,7 @@ const Home = () => {
       console.log("error in fetching the items");
     }else{
       const response=await res.json();
-      console.log(response);
+      // console.log(response);
       setItem((prev)=>{
        return [
         ...response.data
@@ -38,7 +38,7 @@ const Home = () => {
     {items.map((data)=>{
      return <>
 
-        <Item key={data.id} id={data._id} title={data.title} desc={data.desc} price={data.price}  />
+        <Item key={data._id} id={data._id} title={data.title} desc={data.desc} price={data.price}  />
         </>
     })}
         </div>

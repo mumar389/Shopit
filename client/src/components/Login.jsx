@@ -7,8 +7,6 @@ const Login = () => {
     email:'',
     password:''
   });
-
-
   const navigate=useNavigate();
   function handleChange(e){
     const {name,value}=e.target;

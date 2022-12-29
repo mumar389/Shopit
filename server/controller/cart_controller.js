@@ -51,9 +51,14 @@ module.exports.getCart=async(req,res)=>{
                 message:"Plzz Add something in ur cart"
             })
         }else{
+            let tp=0;
+            for(let i of results.cart){
+                tp+=parseFloat(i.price);
+            }
             return res.status(200).json({
                 message:"All Your Items",
-                data:results
+                data:results,
+                totalPrice:tp
             })
         }
     })

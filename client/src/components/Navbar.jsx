@@ -43,18 +43,21 @@ const Navbar = () => {
         <>
           <li className="nav-item">
           <NavLink className="nav-link" to="/sign-in">Profile</NavLink>
-        </li>
-        <li className="nav-item">
-        <NavLink className="nav-link" onClick={handleClick}>SignOut</NavLink>
-        </li>
+          </li>
+          <li className="nav-item">
+          <NavLink className="nav-link" to="/user-cart">Cart</NavLink>
+          </li>
+          <li className="nav-item">
+          <NavLink className="nav-link" onClick={handleClick}>SignOut</NavLink>
+          </li>
         </>:
         <>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/sign-in">Signin</NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/sign-up">Signup</NavLink>
-        </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/sign-in">Signin</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/sign-up">Signup</NavLink>
+          </li>
         </>}
        
       </ul>

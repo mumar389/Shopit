@@ -92,11 +92,14 @@ module.exports.createSession=async(req,res)=>{
 
 //for verifying the user for react auth-:
 module.exports.verifyUser=async (req,res)=>{
+    let allUsers=await User.findById(req.user.id);
     let details={
-        "name":req.user.name,
-        "email":req.user.email,
-        "phone":req.user.phone,
-        "address":req.user.address,
+        "name":allUsers.name,
+        "email":allUsers.email,
+        "phone":allUsers.phone,
+        "address":allUsers.address,
+        "cart":allUsers.cart,
+        "orders":allUsers.order
     };
   return res.send(details);
 }

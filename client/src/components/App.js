@@ -3,8 +3,8 @@ import Home from './Home';
 import Login from './Login';
 import Register from './Register';
 import {Route,Routes} from "react-router-dom";
-import Logout from './Logout';
 import Navbar from './Navbar';
+import Cart from './Cart';
 function App() {
  
   return (
@@ -14,7 +14,7 @@ function App() {
     <Route path="/" element={<Home />} />
     <Route path="/sign-in" element={<Login />} />
     <Route path="/sign-up" element={<Register />} />
-    <Route path="/log-out" element={<Logout />} />
+    <Route path="/user-cart" element={<Cart />} />
     </Routes>
 
     </div>

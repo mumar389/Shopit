@@ -19,7 +19,6 @@ const setUser=async ()=>{
     }
     else{
         const response=await res.json();
-        console.log(response);
         props.onLogin(response)
         console.log("Authorization success");
     }
