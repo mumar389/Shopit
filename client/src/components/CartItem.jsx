@@ -30,7 +30,7 @@ const CartItem = (props) => {
       <h5 className="card-title">{props.title}</h5>
       <p className="card-text">{props.desc}</p>
       <p className="card-text">Price-: <i className="fa-solid fa-indian-rupee-sign"></i>{props.price}</p>
-      <NavLink onClick={handleRemove} className="card-text">Remove From Cart</NavLink>
+      <NavLink onClick={handleRemove} className="card-text"><i className="fa-solid fa-trash"></i></NavLink>
     </div>
   </div>
   )

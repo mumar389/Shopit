@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import {useCookies} from 'react-cookie';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate,NavLink} from 'react-router-dom';
 import CartItem from './CartItem';
 const Cart = () => {
   const [cookies]=useCookies();
@@ -50,6 +50,7 @@ const Cart = () => {
     })
     }
     <h4 className='card-text mt-5'>Total Price is-:{totalPrice}</h4>
+    <NavLink className='card-text mt-15' to='/confirm-order'>Confirm Your Order</NavLink>
     </>}
     </div>
         </div>

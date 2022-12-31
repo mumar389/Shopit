@@ -57,3 +57,20 @@ try {
 }
    
 }
+//get orders-:
+module.exports.getOrder=async(req,res)=>{
+    try {
+       Order.find({user:req.user._id}).populate('items').exec((err,results)=>{
+        return res.status(200).json({
+            message:"Your Orders",
+            data:results
+        })
+       })
+    } catch (error) {
+        console.log(error);
+        return res.status(501).json({
+            message:"Internal Server error"
+        })
+    }
+ 
+}

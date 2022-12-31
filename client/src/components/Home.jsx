@@ -38,7 +38,7 @@ const Home = () => {
     {items.map((data)=>{
      return <>
 
-        <Item key={data._id} id={data._id} title={data.title} desc={data.desc} price={data.price}  />
+        <Item key={data.id} id={data._id} title={data.title} desc={data.desc} price={data.price}  />
         </>
     })}
         </div>
