@@ -9,9 +9,11 @@ const OrderItem = (props) => {
       <br/>
       {props.items.map((it)=>{
         return <>
-            <h5 className='card-text'>{it.title}</h5>
-            <h5 className='card-text'>{it.desc}</h5>
-            <h5 className='card-text'><i className="fa-solid fa-indian-rupee-sign"></i>{it.price}</h5>
+        <div key={it.id}>
+            <h5  className='card-text'>{it.title}</h5>
+            <h5  className='card-text'>{it.desc}</h5>
+            <h5  className='card-text'><i className="fa-solid fa-indian-rupee-sign"></i>{it.price}</h5>
+            </div>
         </>
       })}
     </div>
