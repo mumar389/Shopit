@@ -81,7 +81,7 @@ module.exports.removeItem=async(req,res)=>{
                 message:"Unable to perform this action at this time"
             })
         }else{
-            console.log("Item removed sucessfully");
+            // console.log("Item removed sucessfully");
             return res.status(200).json({
                 message:"Item removed sucessfully"
             })
