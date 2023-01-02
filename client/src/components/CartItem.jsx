@@ -1,10 +1,10 @@
 import React from 'react'
 import {NavLink, useNavigate} from 'react-router-dom';
 import {useCookies} from 'react-cookie';
-
 const CartItem = (props) => {
     const navigate=useNavigate();
   const [cookies]=useCookies();
+
     const handleRemove=async(e)=>{
         e.preventDefault();
         const res=await fetch(`/cart/remove-item/${props.id}`,{
@@ -18,7 +18,6 @@ const CartItem = (props) => {
             window.alert("Failed to delete the item");
             navigate('/user-cart');
         }else{
-            console.log("Item removed from cart🎉🎉🎉");
             window.alert("Item removed from cart🎉🎉🎉")
             window.open('http://localhost:3000/user-cart','_self')
         }
